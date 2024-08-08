@@ -1,27 +1,30 @@
 <template>
+  <CmpLoading v-if="store.loading.state" />
   <AppHeader />
-  <AppMain />
+  <main class="d-flex">
+    <RouterView />
+  </main>
   <AppFooter />
 </template>
 
 <script>
-// import { store } from '../store.js';
-// import axios from 'axios'
-import AppHeader from './components/AppHeader.vue'
-import AppMain from './components/AppMain.vue'
-import AppFooter from './components/AppFooter.vue'
+import { store } from './store.js';
+import AppHeader from './components/layout/AppHeader.vue'
+import AppFooter from './components/layout/AppFooter.vue'
+import CmpLoading from './components/CmpLoading.vue'
 export default {
-  components: { AppHeader, AppMain, AppFooter },
+  components: { AppHeader, AppFooter, CmpLoading },
   data() {
     return {
-      // store,
+      store,
     }
   },
-  methods: {
-  },
-  computed: {
-  },
   mounted() {
+    this.store.start();
+    this.store.loading.on("Caricamento di un secondo");
+    setTimeout(() => {
+      this.store.loading.off();
+    }, 1000);
   }
 }
 
@@ -31,8 +34,4 @@ export default {
 /*
 @use '../assets/scss/partials/_variables.scss' as *;
 */
-#app {
-  background-color: var(--bs-dark);
-  min-height: 100vh;
-}
 </style>

@@ -1,7 +1,8 @@
 {
-  "name": "vue_bootstrap-template",
+  "name": "temp_vue-bootstrap",
   "private": true,
   "version": "0.0.0",
+  "description": "",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -19,5 +20,7 @@
     "@vitejs/plugin-vue": "^5.0.4",
     "sass": "^1.77.5",
     "vite": "^5.2.0"
-  }
+  },
+  "author": "Antonino Cicala",
+  "license": "ISC"
 }
